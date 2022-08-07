@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/kangshung/argocd-setup.git
         revision: HEAD
         directories:
-          - path: *
+          - path: '*'
   template:
     metadata:
       name: "{{path.basename}}"
