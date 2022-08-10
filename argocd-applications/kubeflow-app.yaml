@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kubeflow-app
+  namespace: kubeflow
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/kangshung/argocd-setup.git
+        revision: HEAD
+        directories:
+          - path: 'kubeflow/*'
+  template:
+    metadata:
+      name: "{{path.basename}}"
+    spec:
+      project: ""
+      source:
+        repoURL: https://github.com/kangshung/argocd-setup.git
+        targetRevision: HEAD
+        path: "{{path}}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: kubeflow
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
