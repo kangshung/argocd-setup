@@ -12,7 +12,7 @@ spec:
           - path: "kubeflow/*"
   template:
     metadata:
-      name: "{{path.basename}}"
+      name: kubeflow
     spec:
       project: ""
       source:
