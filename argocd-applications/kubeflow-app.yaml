@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/kangshung/argocd-setup.git
         revision: HEAD
         directories:
-          - path: 'kubeflow/*'
+          - path: "kubeflow/*"
   template:
     metadata:
       name: "{{path.basename}}"
